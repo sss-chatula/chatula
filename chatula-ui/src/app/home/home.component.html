@@ -1,0 +1,31 @@
+<div>
+
+  <div *ngIf="isLoggedIn == false" class="container">
+    <div class="login">
+      <h4>Log in to Chatula</h4>
+      <hr>
+      <form class="login-inner">
+        <input [(ngModel)]="username" [ngModelOptions]="{standalone: true}"
+               type="text" class="form-control email" id="email-input" placeholder="Username">
+        <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
+               type="password" class="form-control password" id="password-input" placeholder="Password">
+        <button  (click)="getJwt()" class="btn btn-block btn-lg btn-success submit" type="submit" value="">Log In</button>
+      </form>
+      <button class="btn btn-sm btn-primary register" disabled>Register</button>
+      <button class="btn btn-sm btn-default forgot" disabled>Forgot your password?</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="isLoggedIn == true" class="text-center">
+    <h3>Chatula menu</h3>
+    <!--<button (click)="chatLogIn()">Log in</button>-->
+    <button class="btn btn-primary" (click)="chatLogOut()">Log out</button>
+    <button class="btn btn-primary" (click)="chatGetChannels()" disabled>Get channels</button>
+    <button class="btn btn-primary" (click)="chatGetUsers()" disabled>Get users</button>
+
+  </div>
+
+
+</div>
+
